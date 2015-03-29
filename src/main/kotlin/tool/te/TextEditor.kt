@@ -16,9 +16,8 @@ class TextEditor() : Application() {
         stage.setScene(scene)
         stage.show()
     }
-
-    fun main(args: Array<String>) {
-        Application.launch(javaClass<TextEditor>(), *args)
-    }
 }
 
+fun main(args: Array<String>) {
+    Application.launch(javaClass<TextEditor>(), *args)
+}
