@@ -7,8 +7,13 @@ import javafx.scene.Scene
 import javafx.stage.Stage
 
 class TextEditor() : Application() {
+    var textEditorController: TextEditorController? = null
+
     override fun start(stage: Stage) {
-        val root: Parent = FXMLLoader.load(javaClass<TextEditor>().getResource("TextEditor.fxml"))
+        val fxmlLoader: FXMLLoader = FXMLLoader(javaClass<TextEditor>().getResource("TextEditor.fxml"))
+        val root: Parent = fxmlLoader.load()
+        textEditorController = fxmlLoader.getController()
+        textEditorController!!.stage = stage
 
         val scene: Scene = Scene(root)
 
