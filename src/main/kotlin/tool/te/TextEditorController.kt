@@ -9,7 +9,7 @@ import javafx.stage.Stage
 class TextEditorController {
     var stage: Stage? = null
 
-    FXML fun handleOpen(event: ActionEvent) {
+    FXML fun handleOpen() {
         val fc = FileChooser()
         fc.setTitle("ファイルを開く")
         fc.showOpenDialog(stage)
