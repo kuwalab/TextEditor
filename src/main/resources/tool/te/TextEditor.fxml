@@ -8,8 +8,12 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.geometry.Insets?>
+<?import java.net.URL?>
 <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml"
             fx:controller="tool.te.TextEditorController">
+ <stylesheets>
+  <URL value="@style.css" />
+ </stylesheets>
  <top>
   <VBox>
    <children>
