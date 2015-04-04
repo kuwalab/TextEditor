@@ -19,12 +19,10 @@ class TextEditorController {
         fc.setTitle("ファイルを開く")
         val file = fc.showOpenDialog(stage)
         if (file == null) return
-        Files.newBufferedReader(file.toPath(), StandardCharsets.UTF_8).use {
-            textArea!!.setText(it.readText())
-        }
+        textArea!!.setText(file.readText(StandardCharsets.UTF_8))
     }
 
     FXML fun handleExit(event: ActionEvent) {
-        Platform.exit();
+        Platform.exit()
     }
 }
