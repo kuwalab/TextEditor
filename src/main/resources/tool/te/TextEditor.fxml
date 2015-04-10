@@ -25,7 +25,11 @@
         <MenuItem text="終了" onAction="#handleExit"/>
        </items>
       </Menu>
-      <Menu text="編集"/>
+      <Menu text="編集">
+       <items>
+        <MenuItem text="設定" onAction="#handleConfig"/>
+       </items>
+      </Menu>
      </menus>
     </MenuBar>
     <HBox spacing="8.0">
