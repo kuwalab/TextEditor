@@ -4,6 +4,7 @@ import javafx.application.Platform
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
 import javafx.fxml.FXMLLoader
+import javafx.fxml.Initializable
 import javafx.scene.Parent
 import javafx.scene.Scene
 import javafx.scene.control.Alert
@@ -12,14 +13,19 @@ import javafx.stage.FileChooser
 import javafx.stage.Modality
 import javafx.stage.Stage
 import javafx.stage.StageStyle
+import java.net.URL
 import java.nio.charset.StandardCharsets
 import java.nio.file.Files
+import java.util.ResourceBundle
 import javax.print.attribute.standard.DialogTypeSelection
 
-class TextEditorController {
+class TextEditorController : Initializable {
     var stage: Stage? = null
 
     FXML var textArea: TextArea? = null
+
+    override fun initialize(location: URL?, resources: ResourceBundle?) {
+    }
 
     FXML fun handleOpen() {
         val fc = FileChooser()
