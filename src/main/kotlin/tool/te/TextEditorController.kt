@@ -39,6 +39,10 @@ class TextEditorController : Initializable {
     }
 
     FXML fun handleSaveAs() {
+        val fc = FileChooser()
+        fc.setTitle("名前を付けて保存")
+        val file = fc.showOpenDialog(stage)
+        if (file == null) return
     }
 
     FXML fun handleExit() {
