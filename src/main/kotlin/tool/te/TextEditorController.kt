@@ -35,6 +35,12 @@ class TextEditorController : Initializable {
         textArea!!.setText(file.readText(Charsets.UTF_8))
     }
 
+    FXML fun handleSave() {
+    }
+
+    FXML fun handleSaveAs() {
+    }
+
     FXML fun handleExit() {
         val alert = Alert(Alert.AlertType.CONFIRMATION)
         alert.setTitle("終了しますか")
@@ -50,12 +56,12 @@ class TextEditorController : Initializable {
         val root: Parent = fxmlLoader.load()
 
         val scene = Scene(root)
-        val confirmDialog = Stage(StageStyle.UTILITY)
-        confirmDialog.setScene(scene);
-        confirmDialog.initOwner(stage);
-        confirmDialog.initModality(Modality.WINDOW_MODAL);
-        confirmDialog.setResizable(false);
-        confirmDialog.setTitle("設定")
-        confirmDialog.showAndWait()
+        val configDialog = Stage(StageStyle.UTILITY)
+        configDialog.setScene(scene);
+        configDialog.initOwner(stage);
+        configDialog.initModality(Modality.WINDOW_MODAL);
+        configDialog.setResizable(false);
+        configDialog.setTitle("設定")
+        configDialog.showAndWait()
     }
 }
