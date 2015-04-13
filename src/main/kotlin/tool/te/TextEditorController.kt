@@ -32,7 +32,10 @@ class TextEditorController : Initializable {
         fc.setTitle("ファイルを開く")
         val file = fc.showOpenDialog(stage)
         if (file == null) return
-        textArea!!.setText(file.readText(Charsets.UTF_8))
+        textArea!!.clear()
+        file.forEachLine(Charsets.UTF_8, {
+            textArea!!.appendText("${it}\n")
+        })
     }
 
     FXML fun handleSave() {
