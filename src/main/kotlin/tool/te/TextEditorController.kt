@@ -1,28 +1,29 @@
 package tool.te
 
 import javafx.application.Platform
-import javafx.event.ActionEvent
 import javafx.fxml.FXML
 import javafx.fxml.FXMLLoader
 import javafx.fxml.Initializable
 import javafx.scene.Parent
 import javafx.scene.Scene
 import javafx.scene.control.Alert
+import javafx.scene.control.MenuItem
 import javafx.scene.control.TextArea
 import javafx.stage.FileChooser
 import javafx.stage.Modality
 import javafx.stage.Stage
 import javafx.stage.StageStyle
+import java.io.File
 import java.net.URL
-import java.nio.charset.StandardCharsets
-import java.nio.file.Files
 import java.util.ResourceBundle
-import javax.print.attribute.standard.DialogTypeSelection
 
 class TextEditorController : Initializable {
     var stage: Stage? = null
 
+    FXML var saveMenu: MenuItem? = null
     FXML var textArea: TextArea? = null
+
+    var currentFile: File? = null
 
     override fun initialize(location: URL?, resources: ResourceBundle?) {
     }
@@ -36,6 +37,8 @@ class TextEditorController : Initializable {
         file.forEachLine(Charsets.UTF_8, {
             textArea!!.appendText("${it}\n")
         })
+        currentFile = file
+        saveMenu?.setDisable(false)
     }
 
     FXML fun handleSave() {

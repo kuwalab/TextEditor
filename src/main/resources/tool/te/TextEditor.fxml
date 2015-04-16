@@ -22,7 +22,7 @@
       <Menu text="ファイル">
        <items>
         <MenuItem text="ファイルを開く" onAction="#handleOpen"/>
-        <MenuItem text="保存" onAction="#handleSave"/>
+        <MenuItem text="保存" onAction="#handleSave" fx:id="saveMenu" disable="true"/>
         <MenuItem text="名前をつけて保存" onAction="#handleSaveAs"/>
         <MenuItem text="終了" onAction="#handleExit"/>
        </items>
