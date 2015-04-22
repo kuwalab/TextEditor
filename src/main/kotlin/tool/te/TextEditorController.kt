@@ -21,6 +21,7 @@ class TextEditorController : Initializable {
     var stage: Stage? = null
 
     FXML var saveMenu: MenuItem? = null
+
     FXML var textArea: TextArea? = null
 
     var currentFile: File? = null
@@ -42,6 +43,9 @@ class TextEditorController : Initializable {
     }
 
     FXML fun handleSave() {
+        // 開いているファイルがない場合。ほぼ考えられない
+        if (currentFile == null) return
+        writeFile()
     }
 
     FXML fun handleSaveAs() {
@@ -49,7 +53,8 @@ class TextEditorController : Initializable {
         fc.setTitle("名前を付けて保存")
         val file = fc.showSaveDialog(stage)
         if (file == null) return
-        file.writeText(textArea!!.getText(), Charsets.UTF_8)
+        currentFile = file
+        writeFile()
     }
 
     FXML fun handleExit() {
@@ -74,5 +79,9 @@ class TextEditorController : Initializable {
         configDialog.setResizable(false);
         configDialog.setTitle("設定")
         configDialog.showAndWait()
+    }
+
+    private fun writeFile() {
+        currentFile!!.writeText(textArea!!.getText(), Charsets.UTF_8)
     }
 }
